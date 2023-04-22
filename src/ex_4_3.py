@@ -16,15 +16,13 @@ FILENAME = get_data_file_path("messages.log")
 
 
 def time_between_shutdowns(logfile):
-    # Get the shutdown events from the logfile
-    shutdown_events = get_shutdown_events(logfile)
-
-    # Get the datetime objects for the first and last shutdown events
-    first_shutdown = logstamp_to_datetime(shutdown_events[0].split()[1])
-    last_shutdown = logstamp_to_datetime(shutdown_events[-1].split()[1])
-
-    # Compute the difference in time between the two events and return as timedelta object
-    return abs(last_shutdown - first_shutdown)
+    """ doc string"""
+    x = get_shutdown_events(logfile)
+    y = list()
+    for i in x:
+        u = i.split()[1]
+        y.append(logstamp_to_datetime(u))
+    return y[-1]-y[0]
 
 
 # >>>> The code below will call your function and print the results
