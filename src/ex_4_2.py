@@ -3,13 +3,10 @@ from datetime import datetime
 
 
 def logstamp_to_datetime(datestr):
-    try:
-        # Try to parse the date string as-is
-        return datetime.strptime(datestr, '%Y-%m-%dT%H:%M:%S')
-    except ValueError:
-        # If parsing fails, try to add microseconds and parse again
-        return datetime.strptime(datestr + '.000000', '%Y-%m-%dT%H:%M:%S.%f')
-
+    """ doc string"""
+    input_str = datestr
+    format_str = '%Y-%m-%dT%H:%M:%S'
+    return datetime.strptime(input_str, format_str)
 
 # >>>> The code below will call your function and print the results
 if __name__ == "__main__":
